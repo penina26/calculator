@@ -26,7 +26,7 @@ The calculator simulates a basic Microsoft Windows OS-style calculator and demon
 
 This project also goes beyond the basic objectives by adding:
 
-- A **BODMAS-aware expression evaluator** (e.g. `2 + 3 * 4` → `14`)
+- A **BODMAS-aware expression evaluator** (e.g. `2 + 3 * 4` -> `14`)
 - Support for **brackets `( )`** in expressions
 - A **dark-themed calculator UI**
 - A **history overlay panel** that appears inside the calculator, on top of the buttons
