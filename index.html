@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Calculator Lab</title>
+</head>
+
+<body>
+    <h1>Calculator Lab</h1>
+
+    <div class="app">
+        <!-- calculator box -->
+        <div class="calculator">
+            <!-- TOP BAR: expression + history icon -->
+            <div class="top-bar">
+                <div id="expression" class="expression"></div>
+                <button id="history-button" onclick="showHistoryOverlay()">⟳</button>
+            </div>
+
+            <!-- display screen -->
+            <div id="display">0</div>
+            <!-- wrapper for buttons -->
+            <div class="buttons-wrapper">
+                <!-- buttons -->
+                <div class="buttons">
+                    <!-- row 1 -->
+                    <button onclick="pressDigit('7')">7</button>
+                    <button onclick="pressDigit('8')">8</button>
+                    <button onclick="pressDigit('9')">9</button>
+                    <button data-operator="/" onclick="pressOperator('/')">÷</button>
+
+                    <!-- row 2 -->
+                    <button onclick="pressDigit('4')">4</button>
+                    <button onclick="pressDigit('5')">5</button>
+                    <button onclick="pressDigit('6')">6</button>
+                    <button data-operator="*" onclick="pressOperator('*')">×</button>
+
+                    <!-- row 3 -->
+                    <button onclick="pressDigit('1')">1</button>
+                    <button onclick="pressDigit('2')">2</button>
+                    <button onclick="pressDigit('3')">3</button>
+                    <button data-operator="-" onclick="pressOperator('-')">-</button>
+
+                    <!-- row 4 -->
+                    <button onclick="pressDigit('0')">0</button>
+                    <button onclick="pressDot()">.</button>
+                    <button id="equals" onclick="pressEquals()">=</button>
+                    <button data-operator="+" onclick="pressOperator('+')">+</button>
+
+                    <!-- row 5 -->
+                    <button onclick="pressLeftBracket()">(</button>
+                    <button onclick="pressRightBracket()">)</button>
+                    <button id="clear" onclick="backspace()">⌫</button>
+                </div>
+                <!--  history overlay  -->
+                <div id="history-overlay" class="history-overlay hidden">
+                    <div class="history-header">
+                        <span>History</span>
+                        <button onclick="hideHistoryOverlay()">✕</button>
+                    </div>
+
+                    <ul id="history-list"></ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

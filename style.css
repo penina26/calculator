@@ -1,0 +1,190 @@
+/* --- Base page styles (light page, dark calculator) --- */
+
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+h1 {
+    margin-bottom: 16px;
+}
+
+.app {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+
+/* --- Dark theme calculator --- */
+
+.calculator {
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 10px;
+    width: 240px;
+    background-color: #181818;
+    color: #f5f5f5;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+/* ---Top bar: expression (left) + history icon (right) --- */
+
+.top-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.expression {
+    flex: 1;
+    font-size: 14px;
+    color: #bbbbbb;
+    min-height: 18px;
+    text-align: right;
+}
+
+/* History icon in the top-right – looks like plain icon, not a big button */
+#history-button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin-left: 6px;
+
+    font-size: 16px;
+    line-height: 1;
+    color: #bbbbbb;
+    cursor: pointer;
+}
+
+#history-button:hover {
+    color: #ffffff;
+}
+
+/* --- Main display --- */
+#display {
+    border: 1px solid #444;
+    border-radius: 6px;
+    padding: 8px 6px;
+    margin-bottom: 8px;
+
+    font-size: 24px;
+    text-align: right;
+    min-height: 32px;
+
+    background-color: #000000;
+
+    color: #f5f5f5;
+}
+
+/* --- Buttons + overlay wrapper --- */
+.buttons-wrapper {
+    position: relative;
+
+}
+
+/* 4-column grid of buttons */
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+}
+
+.buttons button {
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #444;
+
+    background-color: #262626;
+    color: #f5f5f5;
+    cursor: pointer;
+}
+
+.buttons button:hover {
+    background-color: #333333;
+}
+
+/* Backspace / clear (⌫) with red tint to stand out */
+#clear {
+    background-color: #4a1f1f;
+    border-color: #aa4444;
+}
+
+#clear:hover {
+    background-color: #6a2a2a;
+}
+
+
+/* ---- History overlay (inside calculator, over buttons only) ---- */
+
+.hidden {
+    display: none;
+}
+
+/* Covers only the buttons area (from first row down), not the display */
+.history-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    /* Dark gradient from top to bottom */
+    background: linear-gradient(to bottom,
+            rgba(40, 40, 40, 0.92),
+            /* dark grey near top */
+            rgba(5, 5, 5, 0.98)
+            /* almost black at bottom */
+        );
+
+    backdrop-filter: blur(2px);
+    /* slight blur of buttons underneath */
+    border-radius: 6px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.7);
+
+    padding: 6px 8px;
+    overflow-y: auto;
+    z-index: 10;
+}
+
+/* Header inside overlay: "History" + close button ✕ */
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+
+    font-size: 14px;
+    color: #f5f5f5;
+}
+
+.history-header button {
+    font-size: 12px;
+    padding: 2px 6px;
+    cursor: pointer;
+
+    border: 1px solid #555;
+    border-radius: 4px;
+    background-color: #333333;
+    color: #f5f5f5;
+}
+
+.history-header button:hover {
+    background-color: #555555;
+}
+
+/* History list text */
+#history-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    font-size: 13px;
+    color: #e0e0e0;
+}
+
+#history-list li {
+    margin-bottom: 2px;
+}
